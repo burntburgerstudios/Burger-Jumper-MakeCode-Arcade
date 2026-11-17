@@ -3,7 +3,7 @@ namespace SpriteKind {
 }
 
 tiles.setCurrentTilemap(tilemap`level`)
-let mySprite = sprites.create(assets.image`smallBurgerMINE`, SpriteKind.Player)
+let mySprite = sprites.create(assets.image`mySmallBurger`, SpriteKind.Player)
 let myEndSprite = sprites.create(assets.image`pedestal`, SpriteKind.Collectable)
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Collectable, function(){
     game.gameOver(true)

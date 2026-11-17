@@ -1,23 +1,39 @@
+// Setup
 namespace SpriteKind {
     export const Collectable = SpriteKind.create();
 }
 
-tiles.setCurrentTilemap(tilemap`level`)
+// Sprites
 let mySprite = sprites.create(assets.image`mySmallBurger`, SpriteKind.Player)
 let myEndSprite = sprites.create(assets.image`pedestal`, SpriteKind.Collectable)
+
+// Tiles
+tiles.setCurrentTilemap(tilemap`level`)
+
+// Scroller
+scroller.setLayerImage(1, assets.image`myImage`)
+scroller.scrollBackgroundWithSpeed(20, 0, 1)
+scroller.setBackgroundScrollOffset(0, 0)
+
+// Overlaps (Win)
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Collectable, function(){
     game.gameOver(true)
     game.setGameOverScoringType(game.ScoringType.None)
     game.setGameOverEffect(true, effects.confetti)
 })
 
+// Tile Placement
 tiles.placeOnTile(mySprite, tiles.getTileLocation(4, 48))
 tiles.placeOnTile(myEndSprite, tiles.getTileLocation(0, 1))
-mySprite.ay = 300;
+
+// Scene and Scaling
 scene.cameraFollowSprite(mySprite)
 scaling.scaleToPercent(mySprite, 50)
 scaling.scaleToPercent(myEndSprite, 50)
+
+// Gravity and Movement
 controller.moveSprite(mySprite, 100, 0)
+mySprite.ay = 300;
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     if (mySprite.isHittingTile(CollisionDirection.Bottom)) {
         mySprite.vy = -200
@@ -25,23 +41,18 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         timer.throttle("action", 1000, function() {
             mySprite.vx = 150
             mySprite.vy = -150
-            mySprite.sayText("Owee my ankle", 1000)
         })
     } else if (mySprite.isHittingTile(CollisionDirection.Right)) {
         timer.throttle("action", 1000, function () {
             mySprite.vx = -150
             mySprite.vy = -150
-            mySprite.sayText("Owee my ankle", 1000)
         })
     }
 })
 
+// Starting
 game.splash('Burger Jumper', 'Yes a burger jumps.')
 info.startCountdown(35)
 info.onCountdownEnd(function(){
     game.gameOver(false)
 })
-
-scroller.setLayerImage(1 ,assets.image`myImage`)
-scroller.scrollBackgroundWithSpeed(20, 0, 1)
-scroller.setBackgroundScrollOffset(0, 0)

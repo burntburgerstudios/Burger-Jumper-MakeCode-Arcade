@@ -1,0 +1,37 @@
+{
+    "name": "Burger Jumper",
+    "description": "",
+    "dependencies": {
+        "device": "*",
+        "sprite-scaling": "*",
+        "color-coded-tilemap": "*",
+        "controller": "*",
+        "arcade-background-scroll": "github:microsoft/arcade-background-scroll#v0.1.4",
+        "Timers": "github:microsoft/arcade-timers#v1.1.0"
+    },
+    "files": [
+        "main.ts",
+        "README.md",
+        "assets.json",
+        "images.g.jres",
+        "images.g.ts",
+        "tilemap.g.jres",
+        "tilemap.g.ts"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "targetVersions": {
+        "branch": "stable4.1",
+        "tag": "v4.1.28",
+        "commits": "https://github.com/microsoft/pxt-arcade/commits/ef2c8d086d05ff4fe27054e8800a26fd1180ef86",
+        "target": "4.1.28",
+        "pxt": "13.1.25",
+        "targetId": "arcade"
+    },
+    "supportedTargets": [
+        "arcade"
+    ],
+    "preferredEditor": "tsprj",
+    "languageRestriction": "javascript-only"
+}

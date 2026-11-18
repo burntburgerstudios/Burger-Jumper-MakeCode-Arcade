@@ -23,7 +23,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Collectable, function(){
 })
 
 // Tile Placement
-tiles.placeOnTile(mySprite, tiles.getTileLocation(4, 48))
+tiles.placeOnTile(mySprite, tiles.getTileLocation(7, 73))
 tiles.placeOnTile(myEndSprite, tiles.getTileLocation(0, 1))
 
 // Scene and Scaling
@@ -38,21 +38,21 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     if (mySprite.isHittingTile(CollisionDirection.Bottom)) {
         mySprite.vy = -200
     } else if (mySprite.isHittingTile(CollisionDirection.Left)) {
-        timer.throttle("action", 1000, function() {
-            mySprite.vx = 150
-            mySprite.vy = -150
+        timer.throttle("action", 500, function() {
+            mySprite.vx = 200
+            mySprite.vy = -200
         })
     } else if (mySprite.isHittingTile(CollisionDirection.Right)) {
-        timer.throttle("action", 1000, function () {
-            mySprite.vx = -150
-            mySprite.vy = -150
+        timer.throttle("action", 500, function () {
+            mySprite.vx = -200
+            mySprite.vy = -200
         })
     }
 })
 
 // Starting
 game.splash('Burger Jumper', 'Yes a burger jumps.')
-info.startCountdown(35)
+info.startCountdown(60)
 info.onCountdownEnd(function(){
     game.gameOver(false)
 })

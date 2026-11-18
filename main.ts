@@ -51,7 +51,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 })
 
 // Starting
-game.splash('Burger Jumper', 'Yes a burger jumps.')
+game.splash('Burger Jumper (1.1.0)', 'Yes a burger jumps.')
 info.startCountdown(60)
 info.onCountdownEnd(function(){
     game.gameOver(false)
